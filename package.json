@@ -1,0 +1,26 @@
+{
+  "name": "slomo-token-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "run": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mailtomainak/slomo-token-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mailtomainak/slomo-token-api/issues"
+  },
+  "homepage": "https://github.com/mailtomainak/slomo-token-api#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.14"
+  }
+}
