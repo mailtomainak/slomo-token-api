@@ -1,9 +1,9 @@
 module.exports = {
-    TOKEN_SECRET =process.env.TOKEN_SECRET || 'SECRET',
+    TOKEN_SECRET:process.env.TOKEN_SECRET || 'SECRET',
     
-    PORT= process.env.PORT || 8081,
+    PORT: process.env.PORT || 8081,
 
-    MONGO_URL=process.env.MONGO_URL || "",
+    MONGO_URL:process.env.MONGO_URL || "",
 
-    SALT_FACTOR=10
+    SALT_FACTOR:10
 }
