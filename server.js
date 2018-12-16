@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const config = require('./config');
-
+const corsMiddleWare = require('./corsMiddleWare');
 
 
 
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 
 //enable CORS
-
+app.use(corsMiddleWare);
 
 
 app.post('/register', (req, res) => {
