@@ -9,7 +9,7 @@ module.exports = {
 
     AMQP_URL:process.env.AMQP_URL || "",
 
-    ALLOWED_ORIGIN:"http://sincere-name.surge.sh/",
+    ALLOWED_ORIGIN:"sincere-name.surge.sh",
 
     TOKEN_HEADER:"x-slomo-auth"
 }
