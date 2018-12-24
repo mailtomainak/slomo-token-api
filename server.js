@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const config = require('./config');
 const corsMiddleWare = require('./corsMiddleWare');
-
+const amqp = require('amqp');
 
 
 // App
@@ -108,5 +108,7 @@ app.post('/login', (req, res) => {
 app.get('/', (req, res) => {
   res.send('Auth API for SLOMO V1')
 });
-mongoose.connect(config.MONGO_URL)
+mongoose.connect(config.MONGO_URL).then(()=>{
+  amqp.createConnection({url: process.env.AMQP_URL})
+})
 app.listen(config.PORT);

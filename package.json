@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mailtomainak/slomo-token-api#readme",
   "dependencies": {
+    "amqp": "^0.2.7",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
