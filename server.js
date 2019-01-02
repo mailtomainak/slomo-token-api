@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const config = require('./config');
 const corsMiddleWare = require('./corsMiddleWare');
-const amqp = require('amqp');
+
 
 
 // App
@@ -40,7 +40,10 @@ app.post('/register', (req, res) => {
     if (!err) {
       user.save((err, data) => {
         if (!err) {
-          res.send(200, token);
+          const {username,_id} = data;
+          //we publish the id to the queue
+          //publishToNewRegistartionExchange({username})
+          res.send(200,data );
         } else {
           res.send(500,err);
         }
@@ -109,6 +112,6 @@ app.get('/', (req, res) => {
   res.send('Auth API for SLOMO V1')
 });
 mongoose.connect(config.MONGO_URL).then(()=>{
-  amqp.createConnection({url: process.env.AMQP_URL})
+ // amqp.createConnection({url: process.env.AMQP_URL})
 })
 app.listen(config.PORT);

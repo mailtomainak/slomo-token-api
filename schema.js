@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const config = require('./config');
-
+const publishToExchange = require('./newRegExchPub');
 
 let  UserSchema = new  mongoose.Schema({
     username: { type: String, required: true, index: { unique: true } },
@@ -9,6 +9,19 @@ let  UserSchema = new  mongoose.Schema({
 })
 
 
+
+const pushDataToNewRegistrationExchange= async (doc,next)=>{
+    console.log('inside');
+    try{
+        await  publishToExchange(doc.username);
+        next({_id:doc._id,username:doc.username});
+    }
+    catch(e){
+        next(e);
+    }
+    
+    
+}
 
 UserSchema.pre('save',function(next){
     var user = this;
@@ -22,6 +35,9 @@ UserSchema.pre('save',function(next){
             });
         })
     });
+
+UserSchema.post('save',pushDataToNewRegistrationExchange);
+//UserSchema.post('save',removePasswordFromResponse);
 
 exports.model = mongoose.model('User',UserSchema,'user_table');
 
