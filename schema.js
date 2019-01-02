@@ -11,10 +11,10 @@ let  UserSchema = new  mongoose.Schema({
 
 
 const pushDataToNewRegistrationExchange= async (doc,next)=>{
-    console.log('inside');
+   
     try{
         await  publishToExchange(doc.username);
-        next({_id:doc._id,username:doc.username});
+        next();
     }
     catch(e){
         next(e);
@@ -37,7 +37,7 @@ UserSchema.pre('save',function(next){
     });
 
 UserSchema.post('save',pushDataToNewRegistrationExchange);
-//UserSchema.post('save',removePasswordFromResponse);
+
 
 exports.model = mongoose.model('User',UserSchema,'user_table');
 

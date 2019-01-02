@@ -41,9 +41,7 @@ app.post('/register', (req, res) => {
       user.save((err, data) => {
         if (!err) {
           const {username,_id} = data;
-          //we publish the id to the queue
-          //publishToNewRegistartionExchange({username})
-          res.send(200,data );
+          res.send(200,{username,_id});
         } else {
           res.send(500,err);
         }
