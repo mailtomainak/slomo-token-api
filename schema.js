@@ -13,7 +13,7 @@ let  UserSchema = new  mongoose.Schema({
 const pushDataToNewRegistrationExchange= async (doc,next)=>{
    
     try{
-        await  publishToExchange({username:doc.username,id:doc._id});
+        await  publishToExchange({username:doc.username,userId:doc._id});
         next();
     }
     catch(e){
