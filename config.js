@@ -11,7 +11,7 @@ module.exports = {
 
     AMQP_NEW_REGISTRATION_EXCHANGE:process.env.AMQP_NEW_REGISTRATION_EXCHANGE||"slomo.new.registrations",
 
-    ALLOWED_ORIGIN:"http://sincere-name.surge.sh",
+    ALLOWED_ORIGIN:"https://sincere-name.surge.sh",
 
     TOKEN_HEADER:"x-slomo-auth,Content-Type, Access-Control-Allow-Headers"
 }
